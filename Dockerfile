@@ -1,4 +1,3 @@
-# Use NodeJS Image
 FROM nginx:alpine
 MAINTAINER Yuri Freire <yurifrl@outlook.com>
 
@@ -37,6 +36,8 @@ ONBUILD COPY ./certs/ /certs
 ONBUILD COPY ./dist/ /app/
 
 EXPOSE 80 443
+
+VOLUME ["/app/node_modules", "/app/bower_components"]
 
 # Start nginx
 CMD ["/bin/sh", "/start"]
